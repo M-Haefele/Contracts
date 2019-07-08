@@ -1,4 +1,4 @@
-pragma solidity ^0.5.1;
+pragma solidipragma solidity ^0.5.1;
 
 contract Crud{
     struct User{
@@ -6,7 +6,7 @@ contract Crud{
         string name;
     }
     User[] public users;
-    uint public nextId;
+    uint public nextId =1;
     
     function create(string memory name)public {
         users.push(User(nextId, name));
@@ -34,6 +34,8 @@ contract Crud{
                return i;
             }
         }  
+    revert("User does not exist.");    
     }
+    
     
 }
