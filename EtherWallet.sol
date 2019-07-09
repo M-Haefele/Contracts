@@ -22,4 +22,11 @@ contract EtherWallet{
         return  address(this).balance;    
     }
     
+    function validateAddress() view public returns(bool){
+        if(msg.sender == owner){
+            return true;
+        }
+        return false;
+    }
+    
 }
