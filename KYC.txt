@@ -1,0 +1,1 @@
+In order for this contract to compile on the remix IDE, you need to select an address from the JS VM dropdown menu. Its a little unintuitive. After you deploy the EtherWallet with the field filled out you can interact with the contract and validate either party.
