@@ -4,7 +4,11 @@ contract Deed{
     address public lawyer;
     address payable public beneficiary;
     uint public earliest;
-    
+    uint public amount;
+    uint constant public PAYOUT = 10;
+    uint constant public INTERVAL = 10;
+    uint public paidPayouts;
+
     constructor(
         address _lawyer,
         address payable _beneficiary,
@@ -15,13 +19,17 @@ contract Deed{
             lawyer = _lawyer;
             beneficiary = _beneficiary;
             earliest = now +fromNow;
+            amount = msg.value / PAYOUTS;
         }
         
     function withdraw() public {
-    require(msg.sender == lawyer, 'lawyer only');
-    require(now >= earliest, 'too early');
-    beneficiary.transfer(address(this).balance);
-        }
+        require(msg.sender == beneficiary, 'beneficiary only');
+        require(now >= earliest, 'too early');
+        require(paidPayouts < PAYOUTS);
+
+        uint elligiblePayouts = (now - earliest) / INTERVAL;
+        beneficiary.transfer(eligiblePayouts * amount);
+    }
         
         
 }
