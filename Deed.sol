@@ -27,9 +27,12 @@ contract Deed{
         require(now >= earliest, 'too early');
         require(paidPayouts < PAYOUTS);
 
-        uint elligiblePayouts = (now - earliest) / INTERVAL;
+    uint elligiblePayouts = (now - earliest) / INTERVAL;
         beneficiary.transfer(eligiblePayouts * amount);
     }
-        
+    
+    function checkBalance() view public returns (uint){
+        return amount;
+    }
         
 }
