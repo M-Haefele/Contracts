@@ -1,5 +1,7 @@
 pragma solidity ^0.5.1;
 
+//I need to continue working on this even though Ethereum is kill
+
 contract EtherWallet{
     address public owner;
     
