@@ -13,6 +13,6 @@ contract Faucet{
 		msg.sender.transfer(withdraw_amount);
 	}
 
-
+	//implement payable
 	function () public payable()
 }
